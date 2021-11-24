@@ -1,4 +1,12 @@
+
 <div class="container">
+    <div class="card o-hidden border-0 shadow-lg my-5">
+        <div class="card-body p-0">
+            <!-- Nested Row within Card Body -->
+            <div class="row">
+                <div class="col-lg-5 d-none d-lg-block bg-ajouteC-image"></div>
+                <div class="col-lg-7">
+                    <div class="p-5">
     <h2 class="my-3">Ajouter une catégorie</h2>
     <form class="form" (ngSubmit)="onSubmit()">
         <div class="form-group">
@@ -6,7 +14,12 @@
             <input type="text" required [(ngModel)]="categorie.nom" name="nom" placeholder="Nom du catégorie.." class="form-control">
         </div>
         <div class="form-group">
-            <button type="submit" class="btn btn-primary">Ajouter</button>
+            <button type="submit" class="btn btn-primary btn-user btn-block">Ajouter</button>
         </div>
     </form>
+</div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

@@ -1,36 +1,59 @@
 <div class="container">
-    <h2 class="my-3">Ajouter un risque</h2>
-    <form class="form" (ngSubmit)="onSubmit()">
-        <div class="form-group">
-            <label for="id">id du risque</label>
-            <input type="number" [(ngModel)]="risque.id" required name="id" placeholder="id du risque.." class="form-control">
-        </div>
-        <div class="form-group">
+    <div class="card o-hidden border-0 shadow-lg my-5">
+        <div class="card-body p-0">
             <div class="row">
-                <div class="col-sm-6">
-                    <label for="evenclenchant">Événement déclenchant</label>
-                    <input type="string" required [(ngModel)]="risque.evenclenchant" name="evenclenchant" class="form-control">
-                </div>
-                <div class="col-sm-6">
-                    <label for="type">type</label>
-                    <input type="string" required [(ngModel)]="risque.type" name="type" class="form-control">
-                </div>
-                <div class="col-sm-6">
-                    <label for="explmsr">Exemples de mesures</label>
-                    <input type="string" required [(ngModel)]="risque.explmsr" name="explmsr" class="form-control">
+                <div class="col-lg-5 d-none d-lg-block bg-ajouterR-image"></div>
+                <div class="col-lg-6">
+                    <div class="p-5">
+                        <div class="text-center">
+                            <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
+                        </div>
+                        <h2 class="my-3">Ajouter un risque</h2>
+                        <form class="form" (ngSubmit)="onSubmit()">
+                           
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <label for="evenclenchant">Événement déclenchant</label>
+                                        <input type="string" required [(ngModel)]="risque.evenclenchant"
+                                            name="evenclenchant" class="form-control">
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <label for="type">type</label>
+                                        <input type="string" required [(ngModel)]="risque.type" name="type"
+                                            class="form-control">
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <label for="explmsr">Exemples de mesures</label>
+                                        <input type="string" required [(ngModel)]="risque.explmsr" name="explmsr"
+                                            class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="categorie">Catégorie</label>
+                                <select [(ngModel)]="risque.categorie" name="categorie"
+                                    class="form-control custom-select mr-sm-2" required>
+                                    <option *ngFor="let categorie of categories" [ngValue]="categorie"
+                                        class="form-control">
+                                        {{categorie.nom}}
+                                    </option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-primary btn-user btn-block">Ajouter</button>
+                            </div>
+                            <div class="form-group">
+                                <div class="form-group">
+                                  
+              
+                                  <input type="button" class="btn btn-primary" value="CPTURE" (click)="captureScreen()"/>
+                                </div>
+                                <button type="reset" class="btnn btn-primary btn-block">Supprimer</button>
+                              </div>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="form-group">
-            <label for="categorie">Catégorie</label>
-            <select [(ngModel)]="produit.categorie" name="categorie" class="form-control custom-select mr-sm-2" required>
-                <option *ngFor="let categorie of categories" [ngValue]="categorie" class="form-control">
-                    {{categorie.nom}}
-                </option>
-            </select>
-        </div>
-        <div class="form-group">
-            <button type="submit" class="btn btn-primary">Ajouter</button>
-        </div>
-    </form>
-</div>
+    </div>

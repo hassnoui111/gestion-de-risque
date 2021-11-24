@@ -3,8 +3,8 @@ import { risqueService } from 'src/app/services/risque/risque.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { risque } from 'src/app/models/risque-model';
 import { Categorie } from 'src/app/models/categorie-model';
-import { CategorieService } from 'src/app/services/categorie/categorie.service';
 import { ToastrService } from 'ngx-toastr';
+import { CategorieService } from 'src/app/services/categorie/categorie.service';
 
 @Component({
   selector: 'app-update-risque',
@@ -25,18 +25,18 @@ export class UpdaterisqueComponent implements OnInit {
   }
 
   reloadData(){
-    let token = localStorage.getItem("Authorization");
+    const token = localStorage.getItem('Authorization');
     this.serviceCat.allCategorie(token).subscribe(
       res=>this.categories=res
     );
-    this.id=this.route.snapshot.params['id'];
+    this.id=this.route.snapshot.params.id;
     this.service.getrisque(this.id,token).subscribe(
       data=>this.risque=data,error=>console.log(error)
     );
   }
 
   onSubmit(){
-    let token = localStorage.getItem("Authorization");
+    const token = localStorage.getItem('Authorization');
     this.submitted=true;
     this.service.updaterisque(this.id,this.risque,token).subscribe(
       data=>{

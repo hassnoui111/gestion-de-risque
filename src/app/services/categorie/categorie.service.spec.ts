@@ -1,12 +1,12 @@
 import { TestBed } from '@angular/core/testing';
 
-import { AjouterCategorieService } from './categorie.service';
+import { CategorieService } from './categorie.service';
 
 describe('AjouterCategorieService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
   it('should be created', () => {
-    const service: AjouterCategorieService = TestBed.get(AjouterCategorieService);
+    const service: CategorieService = TestBed.get(CategorieService);
     expect(service).toBeTruthy();
   });
 });

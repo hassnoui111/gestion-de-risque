@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ProduitService } from 'src/app/services/produit/produit.service';
 import { CategorieService } from 'src/app/services/categorie/categorie.service';
+import { risqueService } from 'src/app/services/risque/risque.service';
 
 @Component({
   selector: 'app-home',
@@ -9,18 +9,18 @@ import { CategorieService } from 'src/app/services/categorie/categorie.service';
 })
 export class HomeComponent implements OnInit {
 
-  produits=[];
+  risques=[];
   categories=[];
 
   constructor(
-    private produitService:ProduitService,
+    private produitService:risqueService,
     private categorieService:CategorieService
   ) { }
 
   ngOnInit() {
     let token = localStorage.getItem("Authorization");
-    this.produitService.allProduit(token).subscribe(
-      res=>this.produits=res,
+    this.produitService.allrisque(token).subscribe(
+      res=>this.risques=res,
       error=>console.log(error)
     );
     this.categorieService.allCategorie(token).subscribe(
