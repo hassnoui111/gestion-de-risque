@@ -1,0 +1,36 @@
+<div class="container">
+    <h2 class="my-3">Ajouter un risque</h2>
+    <form class="form" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <label for="id">id du risque</label>
+            <input type="number" [(ngModel)]="risque.id" required name="id" placeholder="id du risque.." class="form-control">
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <div class="col-sm-6">
+                    <label for="evenclenchant">Événement déclenchant</label>
+                    <input type="string" required [(ngModel)]="risque.evenclenchant" name="evenclenchant" class="form-control">
+                </div>
+                <div class="col-sm-6">
+                    <label for="type">type</label>
+                    <input type="string" required [(ngModel)]="risque.type" name="type" class="form-control">
+                </div>
+                <div class="col-sm-6">
+                    <label for="explmsr">Exemples de mesures</label>
+                    <input type="string" required [(ngModel)]="risque.explmsr" name="explmsr" class="form-control">
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="categorie">Catégorie</label>
+            <select [(ngModel)]="produit.categorie" name="categorie" class="form-control custom-select mr-sm-2" required>
+                <option *ngFor="let categorie of categories" [ngValue]="categorie" class="form-control">
+                    {{categorie.nom}}
+                </option>
+            </select>
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary">Ajouter</button>
+        </div>
+    </form>
+</div>
